@@ -1,50 +1,63 @@
-Vue Document Uploader Component (Drag & Drop)
+#Vue Document Uploader Component (Drag & Drop)
 
 Vue 3 компонент для завантаження файлів з підтримкою Drag & Drop, прев'ю та обмеженням максимальної кількості файлів.
 
-📦 Встановлення
-
+## 📦 Встановлення
+```bash
 # Встановлення через npm
 npm install @om_olena/document-uploader-vue
 # Або через yarn
 yarn add @om_olena/document-uploader-vue
+```
 
-🛠️ Використання
+## 🛠️ Використання
 
 Ви можете використовувати компонент глобально як плагін, або імпортувати його локально.
 
 1. Глобальна реєстрація (Як плагін)
 
 У вашому головному файлі main.ts (або main.js):
-
+```ts
 import { createApp } from 'vue';
 import App from './App.vue';
 import DocumentUploaderPlugin from '@om_olena/document-uploader-vue';
 
 const app = createApp(App);
 
-// Глобальна реєстрація компонента як <DocumentUploader>
 app.use(DocumentUploaderPlugin); 
 
 app.mount('#app');
+```
 
 2. Локальний імпорт (Рекомендовано)
 
 У будь-якому Vue-файлі (.vue):
-
+```js
 import { DocumentUploader } from '@om_olena/document-uploader-vue';
 
 export default {
   components: {
     DocumentUploader,
   },
-  // ...
 }
+```
 
-📋 Приклад
+## 📋 Приклад
 
 Використовуйте v-model для двосторонньої прив'язки до масиву об'єктів File.
 
+```ts
+<script setup>
+import { ref } from 'vue';
+
+const uploadedFiles = ref([]);
+const existingDocuments = ref([
+  { name: 'Старий звіт.pdf', type: 'PDF', icon: '' }
+]);
+
+</script>
+```
+```html
 <template>
   <DocumentUploader 
     v-model="uploadedFiles"
@@ -52,22 +65,9 @@ export default {
     :documents="existingDocuments"
   />
 </template>
+```
 
-<script setup>
-import { ref } from 'vue';
-// Приклад імпорту, якщо ви не використовували глобальну реєстрацію
-// import { DocumentUploader } from '@om_olena/document-uploader-vue'; 
-
-const uploadedFiles = ref([]); // Тут будуть зберігатися об'єкти File
-const existingDocuments = ref([
-  { name: 'Старий звіт.pdf', type: 'PDF', icon: '[https://example.com/pdf-icon.png](https://example.com/pdf-icon.png)' }
-]);
-
-</script>
-
-
-
-⚙️ Пропси (Props)
+## ⚙️ Пропси (Props)
 
 v-model (тип File[]) - Масив завантажених файлів (File API). Використовуйте для отримання даних.
 
@@ -77,16 +77,15 @@ maxFiles (тип number) - Максимальна кількість файлі�
 
 
 Інтерфейс Document
-
+```ts
 interface Document {
   type: string;
-  icon: string; // URL для іконки або прев'ю
+  icon: string; 
   name: string;
 }
+```
 
-
-📧 Події (Emits)
-
+## 📧 Події (Emits)
 
 update:modelValue - Оновлення масиву файлів. Викликається при додаванні або видаленні файлу.
 
