@@ -1,0 +1,45 @@
+{
+  "name": "@om_olena/document-uploader-vue",
+  "version": "1.0.0",
+  "description": "Vue 3 Document Uploader component with Drag&Drop and preview.",
+  "main": "dist/document-uploader.js",
+  "module": "dist/document-uploader.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --emptyOutDir",
+    "preview": "vite preview",
+    "docker-run": "docker-compose up -d --build",
+    "docker-stop": "docker-compose down",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "typescript",
+    "drag-and-drop",
+    "uploader"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "dependencies": {
+    "vue-router": "^4.3.0",
+    "axios": "^1.6.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vue": "^3.4.21",
+    "vue-tsc": "^2.0.6"
+  }
+}
